@@ -9,7 +9,7 @@ load_dotenv()
 # create a prompt template
 prompt_template = ChatPromptTemplate.from_messages(
     [
-        ("system","Translate the following in to hindi"),
+        ("system","Your are my ai assistant"),
         ("human","{user_input}")
         # HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=['user_input'], template='{user_input}')),
     ]
@@ -20,12 +20,12 @@ llm = ChatGroq(model="llama3-8b-8192")
 
 
 # create a parser
-parser = StrOutputParser()
+# parser = StrOutputParser()
 
 
 # create chain
-chain = prompt_template | llm | parser
+chain = prompt_template | llm | StrOutputParser()
 
 # Run the chain with input data
-result = chain.invoke({"user_input": "how are you"})
+result = chain.invoke({"user_input": "which is your favourite color"})
 print(result)
