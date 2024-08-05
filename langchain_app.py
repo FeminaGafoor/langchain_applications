@@ -11,7 +11,7 @@ prompt_template = ChatPromptTemplate.from_messages(
     [
         ("system","Your are my ai assistant"),
         ("human","{user_input}")
-        # HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=['user_input'], template='{user_input}')),
+        
     ]
 )
 
